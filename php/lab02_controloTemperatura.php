@@ -1,5 +1,5 @@
 <?php
-	$valor_temperatura = file_get_contents("../files/temperatura/valor.txt");
+	$valor_temperatura = $_POST;
 	$update_date = file_get_contents("../files/temperatura/hora.txt");
 ?>
 <!DOCTYPE html>
