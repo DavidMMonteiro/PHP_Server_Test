@@ -1,6 +1,9 @@
 <?php
-	$valor_temperatura = $_POST;
+	$default_txt = "No data";
+	$valor_temperatura = file_get_contents("../files/temperatura/valor.txt");
 	$update_date = file_get_contents("../files/temperatura/hora.txt");
+	$valor_temperatura = $valor_temperatura == ""? $default_txt:$valor_temperatura;
+	$update_date = $update_date == ""? $default_txt:$update_date;
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +18,10 @@
 		<h3>Data atualização de Temperatura:</h3>
 		<p><?php echo $update_date?></p>
 		<h3>Estado de LED</h3>
-		<img src="../img/led-off.png">
+		<?php
+			$state = isset($valor_temperatura, $update_date) && ($valor_temperatura != $default_txt && $update_date != $default_txt)? "on" : "off";
+			echo "<img src='../img/led-".$state.".png' title='Led State: ".$state."'>"
+		?>
 		<h3>Data atualização do LED:</h3>
 		<p><?php echo $update_date?></p>
 	</body>

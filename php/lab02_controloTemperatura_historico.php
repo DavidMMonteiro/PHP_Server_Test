@@ -10,7 +10,7 @@
 	<body>
 		<h1>Lab02 - Histórico de Temperatura</h1>
 		<h3>Estado(Data de atualização)</h3>
-		<p><?php echo $log_temp?></p>
+		<p><?php echo str_replace("\n", "<br>", $log_temp)?></p>
 	</body>
 	<footer><a href="../index.html" >Página inicial</a></li></footer>
 </html>
